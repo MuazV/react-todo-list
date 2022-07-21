@@ -9,11 +9,14 @@ const Home = () => {
         localStorage.setItem("todos", JSON.stringify(inputs));
     }, [inputs])
 
+   const deleteItem = (id) => {
+    setInputs(inputs.filter((el) => el.id !== id))
+   }
     
     return(
         <div className='container m-4'>
             <Header inputs= {inputs} setInputs = {setInputs} />
-            <Todo inputs = {inputs}/>
+            <Todo inputs = {inputs} deleteItem = {deleteItem}/>
         </div>
     );
 };
